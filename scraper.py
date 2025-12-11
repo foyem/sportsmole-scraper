@@ -173,7 +173,7 @@ class SportsMoleScraper:
                         matches.append(match_data)
         
         except Exception as e:
-            print(f"Error parsing table matches: {e}")
+            logger.error(f"Error parsing table matches: {e}")
         
         return matches
     
@@ -276,7 +276,7 @@ class SportsMoleScraper:
                             statistics[key] = value
         
         except Exception as e:
-            print(f"Error parsing statistics: {e}")
+            logger.error(f"Error parsing statistics: {e}")
         
         return statistics
     

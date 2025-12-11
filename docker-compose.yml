@@ -8,6 +8,8 @@ services:
       - "5000:5000"
     environment:
       - PYTHONUNBUFFERED=1
+      # Set to 'true' only for development/debugging
+      - DEBUG_MODE=false
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]

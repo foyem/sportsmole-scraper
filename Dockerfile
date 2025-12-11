@@ -18,6 +18,8 @@ EXPOSE 5000
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
+# Disable debug mode in Docker for security
+ENV DEBUG_MODE=false
 
 # Run the API
 CMD ["python", "api.py"]

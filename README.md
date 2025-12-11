@@ -149,11 +149,19 @@ curl -X POST http://localhost:5000/api/refresh
 
 ```
 sportsmole-scraper/
-├── scraper.py          # Main scraper logic
-├── api.py              # Flask REST API
-├── requirements.txt    # Python dependencies
-├── .gitignore         # Git ignore rules
-└── README.md          # This file
+├── scraper.py              # Main scraper logic
+├── api.py                  # Flask REST API
+├── config.py               # Configuration settings
+├── requirements.txt        # Python dependencies
+├── test_offline.py         # Unit tests
+├── example_usage.py        # Usage examples
+├── start_api.sh            # Startup script
+├── Dockerfile              # Docker container definition
+├── docker-compose.yml      # Docker Compose configuration
+├── .gitignore             # Git ignore rules
+├── README.md              # This file
+├── API_DOCUMENTATION.md   # Complete API reference
+└── QUICKSTART.md          # Quick start guide
 ```
 
 ## How It Works
@@ -175,6 +183,33 @@ The Flask API provides a REST interface to the scraper:
 2. **Endpoints**: Exposes various endpoints for accessing match data
 3. **Filtering**: Supports filtering by competition and team
 4. **Logging**: Comprehensive logging for debugging and monitoring
+
+## Configuration
+
+You can configure the scraper by editing `config.py` or using environment variables:
+
+### Environment Variables
+
+```bash
+# API settings
+export API_HOST="0.0.0.0"
+export API_PORT="5000"
+export DEBUG_MODE="false"  # Always false for production!
+
+# Then run the API
+python api.py
+```
+
+### Configuration File
+
+Edit `config.py` to change default settings:
+- Base URLs
+- Request timeout and retry settings
+- Cache duration
+- API host and port
+- Debug mode (set to False for production)
+
+**Security Note**: Never run with `DEBUG_MODE=true` in production environments. Debug mode can expose sensitive information and allow arbitrary code execution.
 
 ## Development
 

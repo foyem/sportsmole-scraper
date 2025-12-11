@@ -195,6 +195,15 @@ def internal_error(error):
 if __name__ == '__main__':
     # Initialize cache on startup
     logger.info("Starting SportsMole Scraper API...")
+    
+    # Security warning for debug mode
+    if DEBUG_MODE:
+        logger.warning("=" * 60)
+        logger.warning("WARNING: Running in DEBUG mode!")
+        logger.warning("Debug mode should NEVER be used in production.")
+        logger.warning("Set DEBUG_MODE=False in config.py for production use.")
+        logger.warning("=" * 60)
+    
     update_cache()
     
     # Run the Flask app
